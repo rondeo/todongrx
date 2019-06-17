@@ -1,3 +1,14 @@
 <h1>bla</h1>
 
-{{ todo$ | async | json}}
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="id" />
+  <input type="text" formControlName="name" />
+  <input type="text" formControlName="quantity" />
+  <button>Submit</button>
+</form>
+
+<ul *ngIf="todos$ | async as todos">
+  <li *ngFor="let todo of todos">
+    {{ todo.name }} <button (click)="deleteItem(todo.id)">DELETE</button>
+  </li>
+</ul>
