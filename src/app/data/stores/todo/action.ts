@@ -1,15 +1,17 @@
-import { Action } from "@ngrx/store";
-import { Todo } from "../../models";
+import { Action } from '@ngrx/store';
+import { Todo } from '../../models';
 
 export enum ActionTypes {
-  GET_TODOS = "[Todo] Get todos",
-  LOAD_TODOS = "[TODO] Load todos",
-  GET_TODO = "[Todo] Get todo",
-  LOAD_ADD_TODO = "[Todo] Load add todo",
-  ADD_TODO = "[Todo] Add todo",
-  LOAD_REMOVE_TODO = "[Todo] Load remove todo",
-  REMOVE_TODO = "[Todo] Remove todo",
-  UPDATE_TODO = "[Todo] Update todo"
+  GET_TODOS = '[Todo] Get todos',
+  LOAD_TODOS = '[TODO] Load todos',
+  GET_TODO = '[Todo] Get todo',
+  LOAD_ADD_TODO = '[Todo] Load add todo',
+  ADD_TODO = '[Todo] Add todo',
+  LOAD_REMOVE_TODO = '[Todo] Load remove todo',
+  REMOVE_TODO = '[Todo] Remove todo',
+  UPDATE_TODO = '[Todo] Update todo',
+  LOAD_EDIT_TODO = '[Todo] Load edit todo',
+  EDIT_TODO = '[Todo] Edit todo'
 }
 export class LoadTodos implements Action {
   readonly type = ActionTypes.LOAD_TODOS;
@@ -39,8 +41,19 @@ export class RemoveTodoAction implements Action {
   readonly type = ActionTypes.REMOVE_TODO;
 }
 
+export class LoadEditTodo implements Action {
+  readonly type = ActionTypes.LOAD_EDIT_TODO;
+  constructor(public payload: Todo) {}
+}
+
+export class EditTodo implements Action {
+  readonly type = ActionTypes.EDIT_TODO;
+  constructor(public payload: Todo[]) {}
+}
+
 export type Actions =
   | GetTodos
   | LoadTodos
   | AddTodoAction
-  | LoadRemoveTodoAction;
+  | LoadRemoveTodoAction
+  | EditTodo;

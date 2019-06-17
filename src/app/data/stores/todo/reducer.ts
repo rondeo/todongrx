@@ -1,5 +1,5 @@
-import { Actions, ActionTypes } from "./action";
-import { TodoState } from "./state";
+import { Actions, ActionTypes } from './action';
+import { TodoState } from './state';
 
 export const initialState: TodoState = {
   todos: [],
@@ -13,6 +13,8 @@ export function todoReducer(state = initialState, action: Actions): TodoState {
       return { ...state, todos: [...action.payload] };
     case ActionTypes.ADD_TODO:
       return { ...state, todos: [...action.payload] };
+    case ActionTypes.EDIT_TODO:
+      return { ...state, todos: action.payload };
     default:
       return state;
   }

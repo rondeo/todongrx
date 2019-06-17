@@ -1,14 +1,19 @@
 <h1>bla</h1>
 
 <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
-  <input type="text" formControlName="id" />
-  <input type="text" formControlName="name" />
-  <input type="text" formControlName="quantity" />
-  <button>Submit</button>
+  <label>ID <input type="text" formControlName="id"/></label>
+  <label>Name <input type="text" formControlName="name"/></label>
+  <label>Quantity <input type="text" formControlName="quantity"/></label>
+
+  <button *ngIf="!editing">Submit</button>
 </form>
 
 <ul *ngIf="todos$ | async as todos">
   <li *ngFor="let todo of todos">
     {{ todo.name }} <button (click)="deleteItem(todo.id)">DELETE</button>
+    <button *ngIf="!editing" (click)="editTodo(todo)">EDIT</button>
   </li>
 </ul>
+
+<button *ngIf="editing" (click)="confirmEdit()">CONFIRM EDIT</button>
+<button *ngIf="editing" (click)="cancleEdit()">CANCEL EDIT</button>
