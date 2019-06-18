@@ -7,11 +7,11 @@ export enum ActionTypes {
   GET_TODO = '[Todo] Get todo',
   LOAD_ADD_TODO = '[Todo] Load add todo',
   ADD_TODO = '[Todo] Add todo',
-  LOAD_REMOVE_TODO = '[Todo] Load remove todo',
+
+  REMOVE_TODO_SUCCESS = '[Todo] Remove todo success',
   REMOVE_TODO = '[Todo] Remove todo',
-  UPDATE_TODO = '[Todo] Update todo',
-  LOAD_EDIT_TODO = '[Todo] Load edit todo',
-  EDIT_TODO = '[Todo] Edit todo'
+  UPDATE_TODO = '[Todo] Update todo'
+
 }
 export class LoadTodos implements Action {
   readonly type = ActionTypes.LOAD_TODOS;
@@ -32,13 +32,14 @@ export class AddTodoAction implements Action {
   constructor(public payload: Todo[]) {}
 }
 
-export class LoadRemoveTodoAction implements Action {
-  readonly type = ActionTypes.LOAD_REMOVE_TODO;
-  constructor(payload: number) {}
-}
-
 export class RemoveTodoAction implements Action {
   readonly type = ActionTypes.REMOVE_TODO;
+  constructor(public payload: string) {}
+}
+
+export class RemoveTodoSuccessAction implements Action {
+  readonly type = ActionTypes.REMOVE_TODO_SUCCESS;
+  constructor(public payload: Todo[]) {}
 }
 
 export class LoadEditTodo implements Action {
@@ -55,5 +56,6 @@ export type Actions =
   | GetTodos
   | LoadTodos
   | AddTodoAction
-  | LoadRemoveTodoAction
-  | EditTodo;
+
+  | RemoveTodoAction
+  | RemoveTodoSuccessAction;S

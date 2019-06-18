@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { TodoState } from './data/stores/todo/state';
-import { FormGroup, FormControl } from '@angular/forms';
 
-import * as fromSelector from './data/stores';
-import { getTodos } from './data/stores/todo/selectors';
-import { Observable } from 'rxjs';
-import { Todo } from './data/models';
-import { TodoService } from './data/stores/todo/todo.service';
-import { LoadTodos, LoadAddTodoAction, LoadEditTodo } from './data/stores';
+import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { TodoState } from "./data/stores/todo/state";
+import { FormGroup, FormControl } from "@angular/forms";
+
+import * as fromSelector from "./data/stores";
+import { getTodos } from "./data/stores/todo/selectors";
+import { Observable } from "rxjs";
+import { Todo } from "./data/models";
+import { TodoService } from "./data/stores/todo/todo.service";
+import { LoadTodos, LoadAddTodoAction, RemoveTodoAction } from "./data/stores";
+
 
 @Component({
   selector: 'app-root',
@@ -40,6 +42,8 @@ export class AppComponent implements OnInit {
   }
 
   deleteItem(id: any) {
+    console.log(id);
+    this.store.dispatch(new RemoveTodoAction(id));
     this.service.removeTodoService(id).subscribe(data => console.log(data));
   }
 

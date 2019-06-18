@@ -9,11 +9,12 @@ import {
   GetTodos,
   AddTodoAction,
   LoadAddTodoAction,
-  LoadEditTodo,
-  EditTodo
-} from './action';
-import { Observable } from 'rxjs';
-import { Todo } from '../../models';
+
+  RemoveTodoAction,
+  RemoveTodoSuccessAction
+} from "./action";
+import { Observable } from "rxjs";
+import { Todo } from "../../models";
 
 @Injectable()
 export class TodoEffect {
@@ -53,6 +54,17 @@ export class TodoEffect {
         map((todos: Todo[]) => {
           console.log(todos);
           return new EditTodo(todos);
+      }
+      
+  @Effect()
+  removeTodo$: Observable<Action> = this.action$.pipe(
+    ofType(ActionTypes.REMOVE_TODO),
+    switchMap((data: RemoveTodoAction) => {
+      console.log("DATA REMOVE " + JSON.stringify(data));
+      return this.todoService.removeTodoService(data.payload).pipe(
+        map((todos: Todo[]) => {
+          console.log("FROM SERVER REMOVE" + JSON.stringify(todos, null, 4));
+          return new RemoveTodoSuccessAction(todos);
         })
       );
     })
