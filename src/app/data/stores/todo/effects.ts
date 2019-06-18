@@ -9,9 +9,9 @@ import {
   GetTodos,
   AddTodoAction,
   LoadAddTodoAction,
-
   RemoveTodoAction,
-  RemoveTodoSuccessAction
+  RemoveTodoSuccessAction,
+  EditTodo
 } from "./action";
 import { Observable } from "rxjs";
 import { Todo } from "../../models";
@@ -47,7 +47,6 @@ export class TodoEffect {
   );
 
   @Effect()
-
   editTodo$: Observable<Action> = this.action$.pipe(
     ofType(ActionTypes.LOAD_EDIT_TODO),
     switchMap((data: Todo) => {
@@ -55,8 +54,11 @@ export class TodoEffect {
         map((todos: Todo[]) => {
           console.log(todos);
           return new EditTodo(todos);
-      }
-      
+      })
+      );
+    })
+  );
+
   @Effect()
   removeTodo$: Observable<Action> = this.action$.pipe(
     ofType(ActionTypes.REMOVE_TODO),

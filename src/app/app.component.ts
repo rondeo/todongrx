@@ -9,7 +9,7 @@ import { getTodos } from "./data/stores/todo/selectors";
 import { Observable } from "rxjs";
 import { Todo } from "./data/models";
 import { TodoService } from "./data/stores/todo/todo.service";
-import { LoadTodos, LoadAddTodoAction, RemoveTodoAction } from "./data/stores";
+import { LoadTodos, LoadAddTodoAction, RemoveTodoAction, LoadEditTodo } from "./data/stores";
 
 
 @Component({

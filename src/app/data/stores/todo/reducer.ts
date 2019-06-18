@@ -14,10 +14,9 @@ export function todoReducer(state = initialState, action: Actions): TodoState {
 
     case ActionTypes.ADD_TODO:
       return { ...state, todos: [...action.payload] };
-      
+
     case ActionTypes.EDIT_TODO:
       return { ...state, todos: action.payload };
-
 
     case ActionTypes.REMOVE_TODO_SUCCESS:
       /*  const todoId = action.payload;
