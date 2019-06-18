@@ -55,7 +55,6 @@ export class AppComponent implements OnInit {
     });
 
     this.id = this.todoForm.value.id;
-
     this.todoForm.get('id').disable();
     this.editing = true;
   }
