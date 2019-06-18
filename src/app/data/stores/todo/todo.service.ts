@@ -25,7 +25,6 @@ export class TodoService {
   removeTodoService(id: string) {
 
     const removeItemUrl = "/items/remove-item";
-
     return this.http.delete(`${this.url}${removeItemUrl}/${id}`);
   }
 

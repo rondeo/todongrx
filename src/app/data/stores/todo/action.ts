@@ -40,6 +40,7 @@ export class RemoveTodoAction implements Action {
 export class RemoveTodoSuccessAction implements Action {
   readonly type = ActionTypes.REMOVE_TODO_SUCCESS;
   constructor(public payload: Todo[]) {}
+
 }
 
 export class LoadEditTodo implements Action {
@@ -50,6 +51,7 @@ export class LoadEditTodo implements Action {
 export class EditTodo implements Action {
   readonly type = ActionTypes.EDIT_TODO;
   constructor(public payload: Todo[]) {}
+
 }
 
 export type Actions =
@@ -58,4 +60,5 @@ export type Actions =
   | AddTodoAction
 
   | RemoveTodoAction
-  | RemoveTodoSuccessAction;S
+  | RemoveTodoSuccessAction;
+

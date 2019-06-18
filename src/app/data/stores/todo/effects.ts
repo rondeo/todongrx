@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from'@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { map, switchMap } from 'rxjs/operators';
@@ -47,6 +47,7 @@ export class TodoEffect {
   );
 
   @Effect()
+
   editTodo$: Observable<Action> = this.action$.pipe(
     ofType(ActionTypes.LOAD_EDIT_TODO),
     switchMap((data: Todo) => {
