@@ -1,6 +1,8 @@
 import { Actions, ActionTypes } from './action';
 import { TodoState } from './state';
 
+/** NIKOLA UCI GIT MALO :) */
+
 export const initialState: TodoState = {
   todos: [],
   loading: false,
@@ -34,3 +36,5 @@ export function todoReducer(state = initialState, action: Actions): TodoState {
       return state;
   }
 }
+
+
