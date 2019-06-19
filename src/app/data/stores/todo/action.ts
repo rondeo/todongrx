@@ -11,7 +11,8 @@ export enum ActionTypes {
   EDIT_TODO = '[Todo] Edit todo',
   REMOVE_TODO_SUCCESS = '[Todo] Remove todo success',
   REMOVE_TODO = '[Todo] Remove todo',
-  UPDATE_TODO = '[Todo] Update todo'
+  UPDATE_TODO = '[Todo] Update todo',
+  UPDATE_TODO_SUCCESS = '[Todo] Update todo'
 }
 export class LoadTodos implements Action {
   readonly type = ActionTypes.LOAD_TODOS;
