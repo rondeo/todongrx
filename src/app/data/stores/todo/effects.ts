@@ -1,8 +1,8 @@
-import { Injectable } from'@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Action } from '@ngrx/store';
-import { map, switchMap } from 'rxjs/operators';
-import { TodoService } from './todo.service';
+import { Injectable } from "@angular/core";
+import { Actions, Effect, ofType } from "@ngrx/effects";
+import { Action } from "@ngrx/store";
+import { map, switchMap } from "rxjs/operators";
+import { TodoService } from "./todo.service";
 import {
   LoadTodos,
   ActionTypes,
@@ -39,7 +39,7 @@ export class TodoEffect {
     switchMap((data: LoadAddTodoAction) => {
       return this.todoService.addTodosService(data.payload).pipe(
         map((todos: Todo[]) => {
-          console.log('FROM SERVER' + JSON.stringify(todos, null, 4));
+          console.log("FROM SERVER" + JSON.stringify(todos, null, 4));
           return new AddTodoAction(todos);
         })
       );
@@ -54,7 +54,7 @@ export class TodoEffect {
         map((todos: Todo[]) => {
           console.log(todos);
           return new EditTodo(todos);
-      })
+        })
       );
     })
   );

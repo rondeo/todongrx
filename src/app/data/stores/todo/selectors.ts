@@ -11,14 +11,21 @@ import * as state from "./state";
 //   todos: state.TodoState;
 // }
 
-// TODO: pitaj robija
 // export const reducers: ActionReducerMap<ItemsState> = {
 //   todos: fromTodoReducer.todoReducer
 // };
 
-export const TodoSelectorState = createFeatureSelector<state.TodoState>("todos");
+export const TodoSelectorState = createFeatureSelector<state.TodoState>(
+  "todos"
+);
 
 export const getTodos = createSelector(
   TodoSelectorState,
   todoState => todoState.todos
 );
+
+export const getItemForEdit = id =>
+  createSelector(
+    TodoSelectorState,
+    todoState => todoState.todos.filter(todo => todo.id === id)[0]
+  );

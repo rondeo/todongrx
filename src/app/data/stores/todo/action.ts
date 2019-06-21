@@ -1,18 +1,19 @@
-import { Action } from '@ngrx/store';
-import { Todo } from '../../models';
+import { Action } from "@ngrx/store";
+import { Todo } from "../../models";
 
 export enum ActionTypes {
-  GET_TODOS = '[Todo] Get todos',
-  LOAD_TODOS = '[TODO] Load todos',
-  GET_TODO = '[Todo] Get todo',
-  LOAD_ADD_TODO = '[Todo] Load add todo',
-  ADD_TODO = '[Todo] Add todo',
-  LOAD_EDIT_TODO = '[Todo] Load edit todo',
-  EDIT_TODO = '[Todo] Edit todo',
-  REMOVE_TODO_SUCCESS = '[Todo] Remove todo success',
-  REMOVE_TODO = '[Todo] Remove todo',
-  UPDATE_TODO = '[Todo] Update todo'
+  GET_TODOS = "[Todo] Get todos",
+  LOAD_TODOS = "[Todo] Load todos",
+  GET_TODO = "[Todo] Get todo",
+  LOAD_ADD_TODO = "[Todo] Load add todo",
+  ADD_TODO = "[Todo] Add todo",
+  LOAD_EDIT_TODO = "[Todo] Load edit todo",
+  EDIT_TODO = "[Todo] Edit todo",
+  REMOVE_TODO_SUCCESS = "[Todo] Remove todo success",
+  REMOVE_TODO = "[Todo] Remove todo",
+  UPDATE_TODO = "[Todo] Update todo"
 }
+
 export class LoadTodos implements Action {
   readonly type = ActionTypes.LOAD_TODOS;
 }

@@ -1,0 +1,8 @@
+<h1>Edit Page</h1>
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <label>ID <input type="text" formControlName="id"/></label>
+  <label>Name <input type="text" formControlName="name"/></label>
+  <label>Quantity <input type="text" formControlName="quantity"/></label>
+
+  <button>Submit</button>
+</form>
